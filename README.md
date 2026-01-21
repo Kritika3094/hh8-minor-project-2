@@ -1,7 +1,8 @@
 # XSS Attack Lab – Scripting Vulnerability Lab
 
 ## Introduction
-This project demonstrates Cross-Site Scripting (XSS) vulnerabilities caused by improper input handling in web applications.
+This project demonstrates Cross-Site Scripting (XSS) vulnerabilities caused by improper input handling in web applications.This project is developed as part of a cybersecurity minor project to understand real-world web security issues.
+
 
 ## Objective
 To build a vulnerable web application that helps understand how XSS attacks occur and how they can be prevented.
