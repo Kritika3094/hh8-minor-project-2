@@ -21,6 +21,14 @@ Attackers exploit this to execute malicious JavaScript in a victim’s session.
 - HTML
 - CSS
 - EJS
+## Stored XSS Implementation
+
+This application contains a deliberately vulnerable comment section where user input is stored on the server and rendered without sanitization.
+
+By using unescaped rendering (`<%- %>` in EJS), malicious JavaScript entered by an attacker is executed whenever the page is loaded. This demonstrates a Stored Cross-Site Scripting (XSS) vulnerability.
+
+Example payload:
+<script>alert("XSS Attack Successful")</script>
 
 ## Project Status
 Under active development.
