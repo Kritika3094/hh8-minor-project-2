@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XSS Attack Lab</title>
+</head>
+<body>
+
+  <h1>XSS Attack Lab – Stored XSS</h1>
+
+  <form method="POST" action="/comment">
+    <textarea name="comment" rows="4" cols="50" placeholder="Enter your comment"></textarea>
+    <br><br>
+    <button type="submit">Post Comment</button>
+  </form>
+
+  <h2>Comments</h2>
+
+  <% comments.forEach(function(comment) { %>
+    <div>
+      <%= comment %>
+    </div>
+  <% }) %>
+
+</body>
+</html>
