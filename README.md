@@ -11,6 +11,8 @@ To build a vulnerable web application that helps understand how XSS attacks occu
 - Stored XSS
 - Reflected XSS
 - DOM-Based XSS
+XSS vulnerabilities occur when user input is not properly validated or encoded before being rendered in the browser.
+Attackers exploit this to execute malicious JavaScript in a victim’s session.
 
 ## Tools Used
 - Node.js
