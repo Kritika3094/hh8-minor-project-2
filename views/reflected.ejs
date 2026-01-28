@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+<div class="container">
+<h1>Reflected XSS Lab</h1>
+
+<form method="GET" action="/search">
+  <input type="text" name="q" placeholder="Search here">
+  <button type="submit">Search</button>
+</form>
+
+<h2>You searched for:</h2>
+<p><%- query %></p> <!-- Vulnerable -->
+</div></body>
+</html>
