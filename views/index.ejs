@@ -2,24 +2,29 @@
 <html>
 <head>
   <title>XSS Attack Lab</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
+<div class="container">
 
   <h1>XSS Attack Lab – Stored XSS</h1>
 
   <form method="POST" action="/comment">
-    <textarea name="comment" rows="4" cols="50" placeholder="Enter your comment"></textarea>
-    <br><br>
+    <textarea name="comment" rows="4" placeholder="Enter your comment"></textarea>
     <button type="submit">Post Comment</button>
   </form>
 
   <h2>Comments</h2>
 
   <% comments.forEach(function(comment) { %>
-    <div>
-      <%- comment %>
+    <div class="comment-box">
+      <%- comment %> <!-- vulnerable -->
     </div>
   <% }) %>
 
+  <div class="footer">Cybersecurity Mini Project | Kritika</div>
+
+</div>
 </body>
 </html>
