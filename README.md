@@ -54,6 +54,64 @@ This can lead to:
 
 ---
 
+### Session / Cookie Theft Demonstration
+
+**What it shows**
+
+**Purpose**
+This section demonstrates how Cross-Site Scripting (XSS) vulnerabilities can expose user session cookies.
+
+**How It Works in This Lab**
+
+- A demo cookie is set using the route /set-cookie.
+
+- A JavaScript payload is entered in the Stored XSS comment box.
+
+- The browser displays the cookie value using document.cookie.
+
+- This is only a simulation to show risk, not a real attack.
+
+**Steps:**
+- Run server, then open browser:
+http://localhost:3000/set-cookie
+
+You will see:
+Cookie Set Successfully
+Now your browser has a fake session cookie.
+
+- Step 2 – Go to Stored XSS Page
+
+Open:
+
+http://localhost:3000/stored
+
+- Step 3 – Enter Payload
+
+In the comment box type:
+
+<script>alert(document.cookie)</script>
+- Click Post Comment.
+- What Happens,Page reloads.
+- Popup appears showing:
+sessionID=KRITIKA123
+
+
+**This proves:**
+
+“If a website allows XSS, attackers could read session cookies.”
+
+### How it Works in This Project
+
+- A demo cookie is set using /set-cookie.
+- When the payload is posted, the browser displays the cookie value.
+- This shows how attackers can access session information.
+
+**Impact**
+
+- Account hijacking
+- Unauthorized access
+- Privacy breaches
+
  ### 2. Reflected XSS
 **What Happens?**
 - User enters input (for example, a search query).
@@ -62,7 +120,7 @@ This can lead to:
 - The data is **not stored** on the server.
 
 ### Example Payload
-``html
+
 <script>alert('Reflected XSS')</script>
 
 **Real-World Impact**
