@@ -1,0 +1,38 @@
+<div class="box">
+
+<h1>Stored XSS Lab</h1>
+
+<p>This page demonstrates Stored Cross-Site Scripting where user input is saved on the server and executed whenever the page loads.</p>
+
+<form method="POST" action="/comment">
+  <textarea name="comment" rows="4" placeholder="Enter your comment"></textarea>
+  <button type="submit">Post Comment</button>
+</form>
+
+<h2>Comments</h2>
+
+<% comments.forEach(function(c){ %>
+  <div class="comment-box"><%- c %></div>
+<% }) %>
+
+<hr style="margin-top:20px;">
+
+<h3>Try Payloads</h3>
+<ul>
+  <li>&lt;script&gt;alert('Stored XSS')&lt;/script&gt;</li>
+  <li>&lt;h1 style="color:red"&gt;HACKED&lt;/h1&gt;</li>
+  <li>&lt;img src=x onerror=alert('XSS')&gt;</li>
+</ul>
+
+<h3>More Information</h3>
+<ul>
+  <li><a href="https://owasp.org/www-community/attacks/xss/" target="_blank">OWASP XSS Guide</a></li>
+  <li><a href="https://portswigger.net/web-security/cross-site-scripting/stored" target="_blank">PortSwigger Stored XSS</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting" target="_blank">MDN XSS Docs</a></li>
+</ul>
+
+<div class="footer">
+Cybersecurity Mini Project | Kritika
+</div>
+
+</div>

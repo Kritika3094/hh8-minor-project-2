@@ -1,19 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <link rel="stylesheet" href="/style.css">
-
-</head>
-<body>
-<div class="container">
 <h1>Reflected XSS Lab</h1>
 
-<form method="GET" action="/search">
+<p>This page demonstrates Reflected XSS where malicious input is reflected immediately in the response.</p>
+
+<form method="GET" action="/reflected">
   <input type="text" name="q" placeholder="Search here">
   <button type="submit">Search</button>
 </form>
 
-<h2>You searched for:</h2>
-<p><%- query %></p> <!-- Vulnerable -->
-</div></body>
-</html>
+<h2>Search Result</h2>
+
+<p class="comment-box">
+  <%- query %>  <!-- VULNERABLE -->
+</p>
+
+<h3>Try Payloads</h3>
+<ul>
+  <li><code>&lt;script&gt;alert('Reflected XSS')&lt;/script&gt;</code></li>
+  <li><code>&lt;img src=x onerror=alert('XSS')&gt;</code></li>
+</ul>
+
+<h3>More Info</h3>
+<ul>
+  <li><a href="https://owasp.org/www-community/attacks/xss/" target="_blank">OWASP XSS</a></li>
+  <li><a href="https://www.w3schools.com/js/" target="_blank">W3 JavaScript</a></li>
+</ul>

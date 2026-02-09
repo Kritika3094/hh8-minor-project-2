@@ -1,0 +1,19 @@
+<h1>DOM Based XSS Lab</h1>
+
+<div class="box">
+  <p>This page demonstrates DOM-Based XSS using client-side JavaScript.</p>
+
+  <input type="text" id="msgInput" placeholder="Enter message here">
+  <button onclick="updateURL()">Submit</button>
+
+  <h3>Output:</h3>
+  <p id="output" class="comment-box"></p>
+</div>
+
+<h3>Try Payloads</h3>
+<ul>
+  <li>&lt;img src=x onerror=alert('DOM XSS')&gt;</li>
+  <li>&lt;script&gt;alert('DOM')&lt;/script&gt;</li>
+</ul>
+
+<script src="/dom.js"></script>

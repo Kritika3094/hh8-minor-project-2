@@ -1,19 +1,30 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <link rel="stylesheet" href="/style.css">
+<h1>Secure XSS Prevention Lab</h1>
 
-</head>
-<body>
-<h1>Secure Comment Section</h1>
+<p>This page demonstrates how XSS can be prevented using escaped output rendering.</p>
 
 <form method="POST" action="/secure-comment">
-<textarea name="comment"></textarea>
-<button type="submit">Post</button>
+  <textarea name="comment" rows="4" placeholder="Enter your comment"></textarea>
+  <button type="submit">Post Secure Comment</button>
 </form>
 
-<% comments.forEach(function(comment){ %>
-  <div><%= comment %></div> <!-- SAFE -->
+<h2>Secure Comments</h2>
+
+<% comments.forEach(function(comment) { %>
+  <div class="comment-box">
+    <%= comment %>  <!-- SAFE -->
+  </div>
 <% }) %>
-</body>
-</html>
+
+<h3>Prevention Techniques</h3>
+<ul>
+  <li>Input Validation</li>
+  <li>Output Encoding</li>
+  <li>Content Security Policy (CSP)</li>
+  <li>HttpOnly Cookies</li>
+</ul>
+
+<h3>Learn More</h3>
+<ul>
+  <li><a href="https://owasp.org/www-community/attacks/xss/" target="_blank">OWASP XSS Guide</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/XSS" target="_blank">MDN XSS</a></li>
+</ul>

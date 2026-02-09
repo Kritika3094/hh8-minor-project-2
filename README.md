@@ -1,34 +1,139 @@
-# XSS Attack Lab – Scripting Vulnerability Lab
+# XSS Attack Lab – Cybersecurity Mini Project
 
-## Introduction
-This project demonstrates Cross-Site Scripting (XSS) vulnerabilities caused by improper input handling in web applications.This project is developed as part of a cybersecurity minor project to understand real-world web security issues.
+## 📌 Project Overview
+**XSS Attack Lab** is a beginner-friendly web application built to demonstrate how **Cross-Site Scripting (XSS)** vulnerabilities work and how they can be prevented.
 
+This project shows **three common types of XSS attacks** and also includes a **Secure Version** to show how developers can fix these issues.
 
-## Objective
-To build a vulnerable web application that helps understand how XSS attacks occur and how they can be prevented.
+The goal is **educational only** — to understand vulnerabilities, not to misuse them.
 
-## Types of XSS Attacks
-- Stored XSS
-- Reflected XSS
-- DOM-Based XSS
-XSS vulnerabilities occur when user input is not properly validated or encoded before being rendered in the browser.
-Attackers exploit this to execute malicious JavaScript in a victim’s session.
+---
 
-## Tools Used
-- Node.js
-- Express.js
-- JavaScript
-- HTML
-- CSS
-- EJS
-## Stored XSS Implementation
+## 🧠 What is XSS?
 
-This application contains a deliberately vulnerable comment section where user input is stored on the server and rendered without sanitization.
+**XSS (Cross-Site Scripting)** is a security vulnerability where an attacker injects **malicious JavaScript code** into a website.  
+When another user visits the page, the script runs in their browser.
 
-By using unescaped rendering (`<%- %>` in EJS), malicious JavaScript entered by an attacker is executed whenever the page is loaded. This demonstrates a Stored Cross-Site Scripting (XSS) vulnerability.
+This can lead to:
+- Stealing cookies
+- Session hijacking
+- Redirecting users
+- Defacing websites
+- Data theft
 
-Example payload:
-<script>alert("XSS Attack Successful")</script>
+---
 
-## Project Status
-Under active development.
+## ⚙️ Technologies Used
+- **Node.js**
+- **Express.js**
+- **EJS Templates**
+- **HTML**
+- **CSS**
+- **JavaScript**
+
+---
+
+## 🔍 Types of XSS Demonstrated
+
+### 1. Stored XSS
+**What happens?**
+- User enters a comment.
+- That comment is saved on the server.
+- When the page reloads, the comment is displayed.
+- If the comment contains a script, it runs every time the page loads.
+
+**Example Payload**
+``html
+<script>alert('Stored XSS')</script>
+
+**Real-World Impact**
+
+- Any visitor who opens the page triggers the attack.
+- Dangerous because it affects multiple users.
+- The malicious script stays stored on the server and runs every time the page loads.
+
+---
+
+ ### 2. Reflected XSS
+**What Happens?**
+- User enters input (for example, a search query).
+- The website immediately shows that input in the response.
+- If the input contains a script, it runs instantly.
+- The data is **not stored** on the server.
+
+### Example Payload
+``html
+<script>alert('Reflected XSS')</script>
+
+**Real-World Impact**
+
+- Usually sent through malicious links.
+- Happens only when the user clicks the crafted link.
+- Does not affect future visitors.
+
+### 3. DOM-Based XSS
+**What Happens?**
+
+- Vulnerability exists in client-side JavaScript.
+- The page changes its content using user input.
+- No server involvement.
+- Script runs directly in the browser.
+
+### Example Payload
+<img src=x onerror=alert('DOM XSS')>
+
+**Real-World Impact**
+
+- Harder to detect.
+- Happens entirely in the browser.
+- Does not require server storage.
+
+### Secure Version
+
+- The secure page shows how to prevent XSS attacks
+- Protection Techniques Used
+- Escaping user input
+- Output encoding
+- Avoiding direct HTML injection
+- Safe rendering
+
+**Result:**
+Scripts are displayed as plain text, not executed.
+
+### How to Run the Project
+
+- Step 1 – Install Dependencies
+npm install
+
+- Step 2 – Start Server
+node server.js
+
+- Step 3 – Open Browser
+http://localhost:3000
+
+### Project Structure
+project-folder/
+
+├── public/
+
+│   ├── style.css
+
+│   └── dom.js
+│
+├── views/
+
+│   ├── index.ejs
+
+│   ├── stored.ejs
+
+│   ├── reflected.ejs
+
+│   ├── dom.ejs
+
+│   └── secure.ejs
+│
+├── server.js
+
+├── package.json
+
+└── README.md

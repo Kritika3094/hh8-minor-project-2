@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XSS Attack Lab</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+<div class="wrapper">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>XSS LAB</h2>
+    <a href="/stored">XSS (Stored)</a>
+    <a href="/reflected">XSS (Reflected)</a>
+    <a href="/dom">XSS (DOM)</a>
+    <a href="/secure">Secure Version</a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+    <%- body %>
+  </div>
+
+</div>
+</body>
+</html>
